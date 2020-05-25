@@ -263,6 +263,24 @@ button * {
   background: #20232c;
   margin: 20px 0 10px;
   border-radius: 5px;
+  position: relative;
+}
+
+.progressbar__bar {
+  position: absolute;
+  height: 15px;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.progressbar__bar-done {
+  background: #8fc0a9;
+}
+
+.progressbar__bar-in_progress {
+  background: #f7f879;
 }
 
 .todo_done_dolater-list {
@@ -285,10 +303,12 @@ button * {
   border-radius: 5px;
   border: 1px solid #1c1f28;
   font-size: 24px;
-  height: 60px;
+  min-height: 60px;
   display: flex;
+  flex-flow: row;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px 10px;
   margin-bottom: 10px;
 }
 
@@ -307,4 +327,17 @@ button * {
 .todo_done_dolater-list__clearall:hover {
   background: #20232c;
   color: #e5e5e5;
+}
+
+.todo_item__actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.todo_item__button {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  margin-left: 5px;
 }

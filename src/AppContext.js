@@ -25,6 +25,7 @@ export const useAppDispatcher = () => {
 */
 
 const reducer = (state, action) => {
+  let todo;
   switch (action.type) {
     case ACTIONS.CHANGE_SECTION:
       saveState('section', action.value);
@@ -62,6 +63,40 @@ const reducer = (state, action) => {
       return {
         ...state,
         todo: [],
+      };
+    case ACTIONS.DELETE_TODO:
+      todo = state.todo.filter((el) => el.id !== action.value);
+      saveState('todo', todo);
+      return {
+        ...state,
+        todo,
+      };
+    case ACTIONS.MOVE_TO_IN_PROGRESS:
+      todo = state.todo.map((el) =>
+        el.id !== action.value ? el : { ...el, status: STATUS.IN_PROGRESS }
+      );
+      saveState('todo', todo);
+      return {
+        ...state,
+        todo,
+      };
+    case ACTIONS.MOVE_TO_TO_DO:
+      todo = state.todo.map((el) =>
+        el.id !== action.value ? el : { ...el, status: STATUS.TO_DO }
+      );
+      saveState('todo', todo);
+      return {
+        ...state,
+        todo,
+      };
+    case ACTIONS.MOVE_TO_DONE:
+      todo = state.todo.map((el) =>
+        el.id !== action.value ? el : { ...el, status: STATUS.DONE }
+      );
+      saveState('todo', todo);
+      return {
+        ...state,
+        todo,
       };
     default:
       return state;

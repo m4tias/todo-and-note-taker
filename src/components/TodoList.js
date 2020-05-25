@@ -11,37 +11,38 @@ export default function TodoList() {
   let toDo = todo.filter(
       (e) => e.status === STATUS.TO_DO || e.status === STATUS.IN_PROGRESS
     ),
-    done = todo.filter((e) => e.status === STATUS.DONE),
-    doLater = todo.filter((e) => e.status === STATUS.DO_LATER);
+    done = todo.filter((e) => e.status === STATUS.DONE);
 
   return (
     <div className="todo_done_dolater-list">
       <Accordion title="TO DO" open>
-        {toDo.map(({ content, id }) => (
-          <Item key={String(id)}>{content}</Item>
+        {toDo.map(({ content, id, status }) => (
+          <Item key={id} id={id} status={status} toDo>
+            {content}
+          </Item>
         ))}
       </Accordion>
       <Accordion title="DONE">
         {done.map(({ content, id }) => (
-          <Item key={String(id)}>{content}</Item>
+          <Item key={id} id={id}>
+            {content}
+          </Item>
         ))}
       </Accordion>
-      <Accordion title="TO DO LATER">
-        {doLater.map(({ content, id }) => (
-          <Item key={String(id)}>{content}</Item>
-        ))}
-      </Accordion>
-      <button
-        type="button"
-        className="todo_done_dolater-list__clearall"
-        onClick={() =>
-          dispatch({
-            type: ACTIONS.CLEAN,
-          })
-        }
-      >
-        CLEAN
-      </button>
+      {!!todo.length && (
+        <button
+          type="button"
+          className="todo_done_dolater-list__clearall"
+          onClick={() => {
+            if (window.confirm('Delete all?'))
+              dispatch({
+                type: ACTIONS.CLEAN,
+              });
+          }}
+        >
+          CLEAN
+        </button>
+      )}
     </div>
   );
 }
