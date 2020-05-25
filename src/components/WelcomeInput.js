@@ -34,7 +34,7 @@ export default function WelcomeInput() {
   }
 
   return (
-    <section className="welcome-page">
+    <section className="welcome-page section">
       <div>
         <h1 className="welcome-page__title">Welcome!</h1>
       </div>

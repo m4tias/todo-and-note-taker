@@ -3,6 +3,7 @@ import { useAppState } from './AppContext';
 import { SECTIONS } from './constants';
 import WelcomeInput from './components/WelcomeInput';
 import NavBar from './components/NavBar';
+import Todo from './components/Todo';
 
 let { WELCOME, TODO, STICKY, SETTINGS } = SECTIONS;
 
@@ -19,7 +20,7 @@ function App() {
           {(() => {
             switch (section) {
               case TODO:
-                return <div />;
+                return <Todo />;
               case STICKY:
                 return <div />;
               case SETTINGS:
