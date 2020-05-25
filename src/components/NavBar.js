@@ -1,15 +1,23 @@
 import React from 'react';
-import { useAppState } from '../AppContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faList,
+  faCogs,
+  faStickyNote,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
-  let {
-    settings: { name },
-  } = useAppState();
-
   return (
     <div className="nav-bar">
-      <h2 className="nav-bar__welcome-msg">{`Hello${name && `, ${name}`}!`}</h2>
-      <button className="nav-bar__button"></button>
+      <button className="nav-bar__button">
+        <FontAwesomeIcon icon={faList} color="#fbfafb" />
+      </button>
+      <button className="nav-bar__button">
+        <FontAwesomeIcon icon={faStickyNote} color="#fbfafb" />
+      </button>
+      <button className="nav-bar__button">
+        <FontAwesomeIcon icon={faCogs} color="#fbfafb" />
+      </button>
     </div>
   );
 }
