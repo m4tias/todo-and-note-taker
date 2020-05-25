@@ -2,6 +2,7 @@ import React from 'react';
 import Timer from './Timer';
 import TodoAdd from './TodoAdd';
 import ProgressBar from './ProgressBar';
+import TodoList from './TodoList';
 
 export default function Todo() {
   return (
@@ -9,6 +10,7 @@ export default function Todo() {
       <Timer />
       <ProgressBar />
       <TodoAdd />
+      <TodoList />
     </section>
   );
 }

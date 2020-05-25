@@ -7,5 +7,14 @@ export const SECTIONS = {
 
 export const ACTIONS = {
   CHANGE_SECTION: 'CHANGE_SECTION',
-  CHANGE_NAME: 'CHANGE_NAME'
-}
+  CHANGE_NAME: 'CHANGE_NAME',
+  ADD_TODO: 'ADD_TODO',
+};
+
+export const STATUS = {
+  IN_PROGRESS: 'IN_PROGRESS',
+  TO_DO: 'TO_DO',
+  DONE: 'DONE',
+  DO_LATER: 'DO_LATER',
+  CLEAN: 'CLEAN',
+};

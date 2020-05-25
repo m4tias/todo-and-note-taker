@@ -40,6 +40,11 @@ body {
   box-sizing: border-box;
 }
 
+button,
+button * {
+  cursor: pointer;
+}
+
 .section {
   width: 100vw;
   display: flex;
@@ -111,7 +116,6 @@ body {
   font-weight: 400;
   color: #e5e5e5;
   border: none;
-  cursor: pointer;
   padding: 5px 12px;
 }
 
@@ -164,7 +168,6 @@ body {
   height: 40px;
   margin-left: 10px;
   font-size: 17px;
-  cursor: pointer;
 }
 
 .nav-bar__button:hover {
@@ -230,32 +233,28 @@ body {
   border-radius: 5px 0 0 5px;
   border-right: none;
   color: #e5e5e5;
-  transition: border .3s linear;
+  transition: border 0.3s linear;
+  cursor: text;
 }
 
 .todo-section__input:focus {
-  border: 1px solid #4C4F56;
+  border: 1px solid #4c4f56;
   border-right: none;
 }
 
 .todo-section__input:focus ~ .todo-section__add-button {
-
-  border: 1px solid #4C4F56;
+  border: 1px solid #4c4f56;
   border-left: none;
 }
 
 .todo-section__add-button {
   background: #20232c;
   border: 1px solid #1c1f28;
+  border-radius: 0 5px 5px 0;
   border-left: none;
   width: 55px;
   font-size: 24px;
-  cursor: pointer;
-  transition: border .3s linear;
-}
-
-.todo-section__add-button * {
-  cursor: pointer;
+  transition: border 0.3s linear;
 }
 
 .progressbar {
@@ -264,4 +263,48 @@ body {
   background: #20232c;
   margin: 20px 0 10px;
   border-radius: 5px;
+}
+
+.todo_done_dolater-list {
+  width: 100%;
+}
+
+.accordion__arrow {
+  width: 20px;
+  display: inline-block;
+}
+
+.accordion__title {
+  margin-left: 10px;
+  display: inline-block;
+  width: 300px;
+}
+
+.todo_item {
+  background: #52565d;
+  border-radius: 5px;
+  border: 1px solid #1c1f28;
+  font-size: 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.todo_done_dolater-list__clearall {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 20px;
+  border: none;
+  background: transparent;
+  color: #52565d;
+  font-weight: 200;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.todo_done_dolater-list__clearall:hover {
+  background: #20232c;
+  color: #e5e5e5;
 }

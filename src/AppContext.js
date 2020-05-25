@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { loadState, saveState } from './state';
-import { SECTIONS, ACTIONS } from './constants';
+import { SECTIONS, ACTIONS, STATUS } from './constants';
 
 const AppCreatedContext = createContext();
 
@@ -43,6 +43,25 @@ const reducer = (state, action) => {
           ...state.settings,
           name: action.value,
         },
+      };
+    case ACTIONS.ADD_TODO:
+      let id = Math.random();
+      saveState('todo', [
+        ...state.todo,
+        { id, content: action.value, status: STATUS.TO_DO },
+      ]);
+      return {
+        ...state,
+        todo: [
+          ...state.todo,
+          { id, content: action.value, status: STATUS.TO_DO },
+        ],
+      };
+    case ACTIONS.CLEAN:
+      saveState('todo', []);
+      return {
+        ...state,
+        todo: [],
       };
     default:
       return state;
