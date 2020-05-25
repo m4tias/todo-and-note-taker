@@ -4,6 +4,7 @@ import { SECTIONS } from './constants';
 import WelcomeInput from './components/WelcomeInput';
 import NavBar from './components/NavBar';
 import Todo from './components/Todo';
+import Stickys from './components/Stickys';
 
 let { WELCOME, TODO, STICKY, SETTINGS } = SECTIONS;
 
@@ -22,7 +23,7 @@ function App() {
               case TODO:
                 return <Todo />;
               case STICKY:
-                return <div />;
+                return <Stickys />;
               case SETTINGS:
                 return <div />;
               default: /* silence */
