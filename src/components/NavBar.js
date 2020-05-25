@@ -10,13 +10,13 @@ export default function NavBar() {
   return (
     <div className="nav-bar">
       <button className="nav-bar__button">
-        <FontAwesomeIcon icon={faList} color="#fbfafb" />
+        <FontAwesomeIcon icon={faList} color="#E5E5E5" />
       </button>
       <button className="nav-bar__button">
-        <FontAwesomeIcon icon={faStickyNote} color="#fbfafb" />
+        <FontAwesomeIcon icon={faStickyNote} color="#E5E5E5" />
       </button>
       <button className="nav-bar__button">
-        <FontAwesomeIcon icon={faCogs} color="#fbfafb" />
+        <FontAwesomeIcon icon={faCogs} color="#E5E5E5" />
       </button>
     </div>
   );
