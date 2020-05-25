@@ -1,0 +1,11 @@
+export const SECTIONS = {
+  WELCOME: 'WELCOME',
+  TODO: 'TODO',
+  STICKY: 'STICKY',
+  SETTINGS: 'SETTINGS',
+};
+
+export const ACTIONS = {
+  CHANGE_SECTION: 'CHANGE_SECTION',
+  CHANGE_NAME: 'CHANGE_NAME'
+}
