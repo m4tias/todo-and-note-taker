@@ -1,6 +1,6 @@
 ## To-Doer and Note taker
 
-So, just to have some fun during the quarantine, I decided to make this simple app using electron. It's the classic TO-DO app plus a little extra.
+So, just to have some fun and learn new things during quarantine, I decided to make this simple app using electron. It's the classic TO-DO app plus a little extra.
 
 ![image](https://user-images.githubusercontent.com/24543730/82849168-081faf80-9ecd-11ea-9a20-7b2f3fc5bd48.png)
 
