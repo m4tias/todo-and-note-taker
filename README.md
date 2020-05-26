@@ -22,8 +22,9 @@ To start the app:
 ```
 $ npm start
 ```
-Once it's up:
+Once it's up, open another terminal:
 ```
+$ cd todo-and-note-taker
 $ npm run start-electron
 ```
 
