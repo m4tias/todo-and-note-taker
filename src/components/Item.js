@@ -5,11 +5,18 @@ import {
   faPlay,
   faTrashAlt,
   faPause,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 import { STATUS, ACTIONS } from '../constants';
 import { useAppDispatcher } from '../AppContext';
 
-export default function Item({ children, id, status, toDo = false }) {
+export default function Item({
+  children,
+  id,
+  status,
+  toDo = false,
+  sticky = false,
+}) {
   let dispatch = useAppDispatcher();
 
   return (
@@ -45,9 +52,22 @@ export default function Item({ children, id, status, toDo = false }) {
             </button>
           </>
         )}
+        {sticky && (
+          <button
+            className="todo_item__button"
+            onClick={() => navigator.clipboard.writeText(children)}
+          >
+            <FontAwesomeIcon icon={faCopy} color="#ccc" />
+          </button>
+        )}
         <button
           className="todo_item__button"
-          onClick={() => dispatch({ type: ACTIONS.DELETE_TODO, value: id })}
+          onClick={() =>
+            dispatch({
+              type: !sticky ? ACTIONS.DELETE_TODO : ACTIONS.DELETE_STICKY,
+              value: id,
+            })
+          }
         >
           <FontAwesomeIcon icon={faTrashAlt} color="#ccc" />
         </button>

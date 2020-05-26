@@ -4,26 +4,30 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatcher } from '../AppContext';
 import { ACTIONS } from '../constants';
 
-export default function TodoAdd() {
-  let [todoInput, setTodoInput] = useState('');
+export default function AddSticky() {
+  let [stickyInput, setStickyInput] = useState('');
   let dispatch = useAppDispatcher();
   let submit = (e) => {
     e.preventDefault();
-    if (todoInput.trim().length > 0) {
+    if (stickyInput.trim().lenght > 0) {
       dispatch({
-        type: ACTIONS.ADD_TODO,
-        value: todoInput,
+        type: ACTIONS.ADD_STICKY,
+        value: stickyInput,
       });
-      setTodoInput('');
+      setStickyInput('');
     }
   };
   return (
-    <form className="todo-section__add-form" onSubmit={submit}>
+    <form
+      className="todo-section__add-form"
+      onSubmit={submit}
+      style={{ marginTop: '50px' }}
+    >
       <input
         className="todo-section__input"
-        placeholder="Add new item to do"
-        value={todoInput}
-        onChange={(e) => setTodoInput(e.target.value)}
+        placeholder="Add new sticky"
+        value={stickyInput}
+        onChange={(e) => setStickyInput(e.target.value)}
       />
       <button className="todo-section__add-button">
         <FontAwesomeIcon icon={faPlus} color="#E5E5E5" />

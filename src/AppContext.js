@@ -19,13 +19,13 @@ export const useAppDispatcher = () => {
     darkMode?
     notifications?
   },
-  todo: [{ content: String, status: String }],
-  sticky: [String]
+  todo: [{ id: id, content: String, status: String }],
+  sticky: [{id: id, content: String}]
 }
 */
 
 const reducer = (state, action) => {
-  let todo;
+  let todo, id, sticky;
   switch (action.type) {
     case ACTIONS.CHANGE_SECTION:
       saveState('section', action.value);
@@ -46,7 +46,7 @@ const reducer = (state, action) => {
         },
       };
     case ACTIONS.ADD_TODO:
-      let id = Math.random();
+      id = Math.random();
       saveState('todo', [
         ...state.todo,
         { id, content: action.value, status: STATUS.TO_DO },
@@ -97,6 +97,20 @@ const reducer = (state, action) => {
       return {
         ...state,
         todo,
+      };
+    case ACTIONS.ADD_STICKY:
+      id = Math.random();
+      saveState('sticky', [...state.sticky, { id, content: action.value }]);
+      return {
+        ...state,
+        sticky: [...state.sticky, { id, content: action.value }],
+      };
+      case ACTIONS.DELETE_STICKY:
+      sticky = state.sticky.filter((el) => el.id !== action.value);
+      saveState('sticky', sticky);
+      return {
+        ...state,
+        sticky,
       };
     default:
       return state;

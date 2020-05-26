@@ -170,7 +170,8 @@ button * {
   font-size: 17px;
 }
 
-.nav-bar__button:hover {
+.nav-bar__button:hover,
+.nav-bar__button-active {
   background: #52565d;
 }
 
